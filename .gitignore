@@ -1,0 +1,7 @@
+# 每个插件目录都是独立的 git 仓库（嵌套仓库在此忽略）
+dsh-*/
+!README.md
+!install-first-batch.sh
+
+# OS / editor
+.DS_Store

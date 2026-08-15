@@ -1,5 +1,5 @@
 /**
- * Build the dsh-channel-wechat client bundle.
+ * Standard DSH client build template — css-module onLoad (md5-8 hash classes + <style data-plugin-css>), jsx automatic, EXTERNALS incl. react/jsx-runtime. Copy into a plugin's scripts/build.mjs and adapt the header comment.
  *
  * Produces lib/client.js in the exact wire format the DSH web shell expects:
  * a CJS factory handed to window.__ModuleLoader__.load({ id, factory }), with

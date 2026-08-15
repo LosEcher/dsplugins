@@ -83,6 +83,18 @@ dsh plugin --profile web add dsh-tool-ocr          # npm 源
 注意：`cordis.patch.yml` 的 insert 块编辑后别重复 reapply（loader 对重复 entry id 拒绝）；
 激活行属于 profile 配置层，不属于任何插件目录。
 
+## 外部插件 fork（样式/兼容性调整后引入）
+
+外部插件（github:/npm: 安装）存在样式不合标准或与当前 DSH 版本不兼容（如槽位改名）时，
+fork 到 dsplugins 调整后引入（流程详见技能 dsh-plugin-operations「外部插件样式可优化 →
+fork 流程」）：
+
+- **dsh-context-doctor**（已 fork，2026-08-15）：上游注册在已移除的
+  `conversation.input.context` 槽位 → **GUI 完全不渲染**；fork 迁移到
+  `conversation.input.dock`（list 槽需 id+order）后 UI 修活；同时清理 TONE 常量里的
+  深色 fallback hex（令牌缺失时浅色主题错乱）、MONO 改 `var(--dsw-font-family)`。
+  profile 已切 `link:dsplugins/dsh-context-doctor`，upstream remote 保留可合上游。
+
 ## 安装脚本
 
 `install-first-batch.sh` 安装第一批社区插件（context-doctor / llm-fallbacks /

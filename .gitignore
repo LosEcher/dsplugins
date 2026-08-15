@@ -2,6 +2,8 @@
 */
 !README.md
 !install-first-batch.sh
+!scripts/
+!scripts/dsh-client-build.mjs
 
 # OS / editor
 .DS_Store

@@ -16,16 +16,16 @@ DeepSeek Harness (DSH) 插件仓库管理目录。**所有 DSH 自研/本地插�
 | 插件 | GitHub | 状态 | 说明 |
 |---|---|---|---|
 | [dsh-semantic-eviction](dsh-semantic-eviction/) | [LosEcher/dsh-semantic-eviction](https://github.com/LosEcher/dsh-semantic-eviction) | ✅ 已发布 | 语义逐出：大工具结果落盘后替换为 stub（移植自 los） |
-| [dsh-jj](dsh-jj/) | 待发布 | 📦 本地已建仓 | jj (Jujutsu) MCP server bundle（自研零依赖，14 工具 + 33 项冒烟测试） |
+| [dsh-jj](dsh-jj/) | [LosEcher/dsh-jj](https://github.com/LosEcher/dsh-jj) | ✅ 已发布（2026-08-15） | jj (Jujutsu) MCP server bundle（自研零依赖，14 工具 + 冒烟测试全绿；profile 依赖待切 `github:`） |
+| [dsh-channel-telegram](dsh-channel-telegram/) | [LosEcher/dsh-channel-telegram](https://github.com/LosEcher/dsh-channel-telegram) | ✅ 已发布（2026-08-15） | Telegram 薄桥（长轮询 Bot API，allowlist，每聊一会话；profile 依赖待切 `github:`） |
+| [kimi-webbridge-mcp](kimi-webbridge-mcp/) | [LosEcher/kimi-webbridge-mcp](https://github.com/LosEcher/kimi-webbridge-mcp) | ✅ 已发布（2026-08-15） | Kimi WebBridge MCP server（浏览器控制，跨 DSH/Claude Code/Codex；profile 依赖待切 `github:`） |
 | [dsh-code-analysis](dsh-code-analysis/) | 待发布 | 📦 本地已建仓 | CBM 代码知识图谱接入（mcp__cbm__* 14 工具） |
 | [dsh-health-panel](dsh-health-panel/) | 待发布 | 📦 本地已建仓 | DSH 观测面板（client 半包，host 指标 API） |
-| [kimi-webbridge-mcp](kimi-webbridge-mcp/) | 待发布 | 📦 本地已建仓 | Kimi WebBridge MCP server（浏览器控制） |
 | [dsh-channel-wechat](dsh-channel-wechat/) | 待发布 | 📦 本地已建仓 | 微信渠道插件（weclaw 桥接） |
-| [dsh-channel-telegram](dsh-channel-telegram/) | 待发布 | 📦 本地已建仓 | Telegram 渠道插件 |
 | [dsh-mcp-common](dsh-mcp-common/) | 待发布 | 📦 本地已建仓 | MCP 公共工具（MCP server 一键接入） |
 | … | | | 待开发 |
 
-状态说明：`✅ 已发布` = 已推 LosEcher GitHub、profile 用 `github:` 依赖；`📦 本地已建仓` = 2026-08-15 从 dsfolder 迁入，git 仓库已建、尚未发布。
+状态说明：`✅ 已发布` = 已推 LosEcher GitHub；profile 依赖仍为 `link:` 时注明「待切 `github:`」。`📦 本地已建仓` = 2026-08-15 从 dsfolder 迁入，git 仓库已建、尚未发布。
 
 ## 结构约定
 

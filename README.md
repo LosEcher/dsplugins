@@ -20,7 +20,7 @@ DeepSeek Harness (DSH) 插件仓库管理目录。**所有 DSH 自研/本地插�
 | [kimi-webbridge-mcp](kimi-webbridge-mcp/) | [LosEcher/kimi-webbridge-mcp](https://github.com/LosEcher/kimi-webbridge-mcp) | ✅ 已发布 1.0.1（2026-08-15，已切 `github:`） | Kimi WebBridge MCP server（浏览器控制，跨 DSH/Claude Code/Codex；vivaldi-open 在 extras/） |
 | [dsh-semantic-eviction](dsh-semantic-eviction/) | [LosEcher/dsh-semantic-eviction](https://github.com/LosEcher/dsh-semantic-eviction) | ⚠️ 已 public，依赖待修 | 语义逐出：大工具结果落盘后替换为 stub；workspace:^ 依赖不兼容 GitHub 安装，待切真实范围后标 experimental |
 | [dsh-multimedia](dsh-multimedia/) | 待发布 | 📦 本地已建仓（0.2.0） | 多媒体生成（fal/elevenlabs/comfyui/xai/zenmux/pollinations/googletts/cloudflare 渠道；CSS Module+locales 范式已整改） |
-| [dsh-scheduler](dsh-scheduler/) | 待发布 | 📦 本地已建仓（0.2.0） | 定时任务（cron/interval/once + headless 执行 + deliverTo + 熔断 + 管理 tab） |
+| [dsh-scheduler](dsh-scheduler/) | [LosEcher/dsh-scheduler](https://github.com/LosEcher/dsh-scheduler) | ✅ 已发布 0.2.1（2026-08-18，含 9a95916 crash-loop 修复 + b32a5d4 加固；profile 仍 link: 至下次空闲重启） | 定时任务（cron/interval/once + headless 执行 + deliverTo + 熔断 + 事件溯源台账 + 管理 UI） |
 | [dsh-context-doctor](dsh-context-doctor/) | 待发布 | 📦 本地已建仓（0.5.1） | fork 自 Zhenyu98（保留 upstream remote），dock 槽位迁移 + 令牌清理已修活 |
 | [dsh-code-analysis](dsh-code-analysis/) | 待发布 | 📦 本地已建仓 | CBM 代码知识图谱接入（mcp__cbm__*，本机 allowlist 10 工具） |
 | [dsh-health-panel](dsh-health-panel/) | 待发布 | 📦 本地已建仓 | DSH 观测面板（client 半包，host 指标 API；Wave3 拟并入 code-analysis） |

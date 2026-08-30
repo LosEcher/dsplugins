@@ -8,7 +8,7 @@ DeepSeek Harness (DSH) 插件仓库管理目录。**所有 DSH 自研/本地插�
 > - `dsfolder/`：**执行目录**（业务项目、los 网关代理等非插件服务），**不再放置任何插件**。
 > - 纯第三方插件（如 dsh-tool-ocr）走 npm / `github:` 依赖 + profile patch 激活，
 >   不占用本地目录；仅当需要本地改造时才在 dsplugins 建仓。
-> - profile 依赖统一指向 `link:/Users/echerlos/syncthing/project/dsplugins/<name>`
+> - profile 依赖统一指向 `link:/Users/echerlos/syncfolder/project/dsplugins/<name>`
 >   （开发期）或 `github:LosEcher/<name>#main`（发布后），禁止再指向 dsfolder。
 
 ## 仓库清单
@@ -24,11 +24,11 @@ DeepSeek Harness (DSH) 插件仓库管理目录。**所有 DSH 自研/本地插�
 | [dsh-terminal-render](dsh-terminal-render/) | [LosEcher/dsh-terminal-render](https://github.com/LosEcher/dsh-terminal-render) | ✅ github:（0.1.x，web+headless 双挂载）；本地目录无 origin（保留作 dev 副本） | 终端渲染（kitty/sixel 图片协议） |
 | [dsh-web-mobile-fork](dsh-web-mobile-fork/) | [LosEcher/dsh-web-mobile](https://github.com/LosEcher/dsh-web-mobile) | ✅ github:（@dsh-external/dsh-mobile-nav） | 移动端导航 fork（tailscale serve + triage） |
 | [dsh-scheduler](dsh-scheduler/) | [LosEcher/dsh-scheduler](https://github.com/LosEcher/dsh-scheduler) | ✅ 已发布 0.3.x；**profile 当前 link:**（迭代中，空闲切回 github:） | 定时任务（cron/interval/once + headless 执行 + job.model 模型链 + 熔断 + 事件溯源台账 + 管理 UI） |
-| [dsh-dashboards](dsh-dashboards/) | [LosEcher/dsh-dashboards](https://github.com/LosEcher/dsh-dashboards) | ✅ 已发布（8/18）；本地目录缺 origin remote（需补）；profile link: | 看板（los 用量/节点矩阵 + macOS 探针 + 服务探活 + AI 额度 + 磁盘水位告警） |
-| [dsh-semantic-eviction](dsh-semantic-eviction/) | [LosEcher/dsh-semantic-eviction](https://github.com/LosEcher/dsh-semantic-eviction) | ✅ 已 public（workspace:^ 依赖已修 852a132）；**未挂载任何 profile** | 语义逐出：大工具结果落盘后替换为 stub |
-| [dsh-context-doctor](dsh-context-doctor/) | fork 自 Zhenyu98（upstream remote 保留） | 📦 本地（0.5.x）；profile link: | 上下文压缩可视化；dock 槽位迁移 + 令牌清理已修活（fork 原因见下） |
+| [dsh-dashboards](dsh-dashboards/) | [LosEcher/dsh-dashboards](https://github.com/LosEcher/dsh-dashboards) | ✅ 已发布（8/18；**8/26-28 已补 origin 并推 GitHub**，v0.1.0）；profile link: | 看板（los 用量/节点矩阵 + macOS 探针 + 服务探活 + AI 额度 + 磁盘水位告警） |
+| [dsh-semantic-eviction](dsh-semantic-eviction/) | [LosEcher/dsh-semantic-eviction](https://github.com/LosEcher/dsh-semantic-eviction) | ✅ 已 public（workspace:^ 依赖已修 852a132）；**未挂载任何 profile**；⚠️ **仓库未提交 lib/ 且无 prepare 脚本 → github: 安装当前不可用**（DSH CLI 靠 prepare 构建，待补） | 语义逐出：大工具结果落盘后替换为 stub |
+| [dsh-context-doctor](dsh-context-doctor/) | fork 自 Zhenyu98（upstream remote 保留）；⚠️ **origin 仍指 Zhenyu98（待建 LosEcher 仓改指后 README 切 github: 源）** | 📦 本地（0.5.x）；profile link: | 上下文压缩可视化；dock 槽位迁移 + 令牌清理已修活（fork 原因见下） |
 | [dsh-multimedia](dsh-multimedia/) | 待发布 | 📦 本地（0.2.0）；profile link: | 多媒体生成（fal/elevenlabs/comfyui/xai/zenmux/pollinations/googletts/cloudflare） |
-| [dsh-verify-gate](dsh-verify-gate/) | 待发布 | 📦 本地（0.1.x）；profile link:（web+headless） | verify_run 工具（包装 verify-gate 二进制，exit 契约映射） |
+| [dsh-verify-gate](dsh-verify-gate/) | [LosEcher/dsh-verify-gate](https://github.com/LosEcher/dsh-verify-gate) | ✅ **已发布（8/26，public/MIT/main@7f84e45，v0.1.0，origin 已建）**；profile 仍 link:（web+headless） | verify_run 工具（包装 verify-gate 二进制，exit 契约映射） |
 | [dsh-quick-actions](dsh-quick-actions/) | 待发布 | 📦 本地；profile link: | IFTTT 风格右键动作引擎（todo.add/session.create 等，runs.jsonl 台账） |
 | [dsh-code-analysis](dsh-code-analysis/) | 待发布 | 📦 本地；profile link: | CBM 代码知识图谱接入（mcp__cbm__*，本机 allowlist 10 工具） |
 | [dsh-health-panel](dsh-health-panel/) | 待发布 | 📦 本地；profile link: | DSH 观测面板（client 半包，host 指标 API；Wave3 拟并入 code-analysis） |
@@ -37,11 +37,12 @@ DeepSeek Harness (DSH) 插件仓库管理目录。**所有 DSH 自研/本地插�
 | [dsh-mobile](dsh-mobile/) | 待发布 | 📦 本地；profile link: | 移动接入（tailscale serve + Web Push + triage） |
 | [dsh-feishu-outbound](dsh-feishu-outbound/) | 待发布 | 📦 本地；profile link: | 飞书主动推送（__dshChannelNotify.feishu） |
 | [dsh-los-ops](dsh-los-ops/) | 待发布 | 📦 本地；profile link: | DSH→los 治理操作面（los_gov_* 工具） |
-| [dsh-restart-banner](dsh-restart-banner/) | 待发布 | 📦 本地；profile link: | 重启 banner（shell.overlay，harness 侧已原生支持，本插件为备选） |
+| [dsh-restart-banner](dsh-restart-banner/) | 待发布 | 📦 本地；**未挂载任何 profile**（web/headless 均未安装，备选插件） | 重启 banner（shell.overlay，harness 侧已原生支持，本插件为备选） |
 | [dsh-terminal-browser](dsh-terminal-browser/) | 待发布 | 📦 本地（git 087d4ef）；**disabled:true 按需启用** | 终端内浏览器（tb_open/ls/action/close，guardrails 白名单；启用步骤见其 README） |
 | [dsh-theme-tune](dsh-theme-tune/) | 待发布 | 📦 本地（0.1.0）；profile link: | 主题令牌覆盖：全局对比度矫正 |
 | [dsh-mcp-common](dsh-mcp-common/) | 不发布 | 📦 本地；profile link: | MCP 公共工具（context7 已 disabled；开源评审结论 REBUILD-or-DROP） |
 | [dsh-channel-wechat](dsh-channel-wechat/) | 不发布 | ⚠️ **停用**（2026-08-17，weclaw 全面停用；cordis.patch.yml disabled:true） | 微信渠道插件（weclaw 桥接）；恢复需重扫 weclaw 登录 |
+| [dsh-channel-telegram](dsh-channel-telegram/) | [LosEcher/dsh-channel-telegram](https://github.com/LosEcher/dsh-channel-telegram) | ✅ github:（0.1.x）；⚠️ **2026-08-30 起 disabled**（未配置 TELEGRAM_BOT_TOKEN，152 条 ERROR 噪音；恢复=去 disabled + 配 token） | Telegram 薄桥（长轮询 Bot API，allowlist，每聊一会话；CI mock 单测） |
 | install-first-batch.sh | — | 历史脚本 | 第一批社区插件安装（2026-08-15） |
 
 ### 第三方依赖（不占本地目录，走 github:/npm:）
@@ -51,12 +52,12 @@ DeepSeek Harness (DSH) 插件仓库管理目录。**所有 DSH 自研/本地插�
 | dsh-llm-fallbacks | github:omdsh-dev/dsh-llm-fallbacks#main | 模型 fallback 链（Auto 路由） |
 | dsh-memory-evolve | github:csyangwen/dsh-memory-evolve#main | 记忆/待办/技能工具（memory/dtodo/skill_manage） |
 | dsh-subagent-tools | github:lynx-gt/dsh-subagent-tools#master | 子代理增强工具 |
-| dsh-lark-channel | npm ^0.0.6 | 飞书渠道 |
+| dsh-lark-channel | npm ^0.0.7 | 飞书渠道 |
 | dsh-session-pin | npm ^0.3.1 | 会话置顶 |
-| dsh-tool-ocr | npm ^0.1.1 | OCR 工具（nbocr 引擎） |
+| dsh-tool-ocr | npm ^0.1.3 | OCR 工具（nbocr 引擎） |
 | nowledge-mem-deepseek-harness | github:nowledge-co/... | Nowledge Mem 上下文包 |
 | @zenmux/dsh-plugins | github:ZenMux/dsh-plugins | ZenMux 额度插件 |
-| dsh-undo | link:/Users/echerlos/Downloads/projects/dsh-undo | ⚠️ 本地 dev 副本（第三方，未迁移进 dsplugins） |
+| dsh-undo | link:/Users/echerlos/syncfolder/project/dsh-undo | ⚠️ 本地 dev 副本（第三方，未迁移进 dsplugins） |
 
 ## 结构约定
 
@@ -87,7 +88,7 @@ git add -A && git commit -m "feat: <plugin-name> — <一句话>"
 gh repo create LosEcher/<plugin-name> --public --source=. --remote=origin --push
 
 # 4. 安装到 DSH（发布前用 link: 本地开发，发布后切 github:）
-dsh plugin --profile web add link:/Users/echerlos/syncthing/project/dsplugins/<plugin-name>
+dsh plugin --profile web add link:/Users/echerlos/syncfolder/project/dsplugins/<plugin-name>
 dsh plugin --profile web add "github:LosEcher/<plugin-name>#main"
 ```
 

@@ -14,19 +14,22 @@ DeepSeek Harness (DSH) 插件仓库管理目录。**所有 DSH 自研/本地插�
 ## 仓库清单
 
 > 全量登记（2026-08-26 重建，此前版本仅登记 12 项且多处过时）。
+> **2026-09-22 按实装版本复核一次**：逐目录比对 `<plugin>/package.json` 与
+> `~/.dsh/profiles/web/node_modules/<plugin>/package.json`（命令见文末「状态自检」），
+> 修正 kimi-webbridge-mcp 1.0.x→1.2.0、dsh-scheduler 0.3.x→0.4.0、dsh-context-doctor 0.5.x→0.7.2，
+> 并删除重复的 dsh-channel-telegram 行（原有两条）。
 > 状态口径：`✅ github:`=已发布且 web profile 依赖为 `github:LosEcher/<name>#main`；`✅ 已发布/link:`=已发布但 profile 仍用本地 link:（迭代中）；`📦 本地`=未发布；`⚠️ 停用`=已停用（disabled）。
 
 | 插件 | GitHub | 状态 | 说明 |
 |---|---|---|---|
-| [dsh-jj](dsh-jj/) | [LosEcher/dsh-jj](https://github.com/LosEcher/dsh-jj) | ✅ github:（1.0.x） | jj (Jujutsu) MCP server bundle（自研零依赖，14 工具 + CI 冒烟全绿） |
-| [dsh-channel-telegram](dsh-channel-telegram/) | [LosEcher/dsh-channel-telegram](https://github.com/LosEcher/dsh-channel-telegram) | ✅ github:（0.1.x） | Telegram 薄桥（长轮询 Bot API，allowlist，每聊一会话；CI mock 单测） |
-| [kimi-webbridge-mcp](kimi-webbridge-mcp/) | [LosEcher/kimi-webbridge-mcp](https://github.com/LosEcher/kimi-webbridge-mcp) | ✅ github:（1.0.x） | Kimi WebBridge MCP server（浏览器控制，跨 DSH/Claude Code/Codex；open-tab 在 extras/） |
+| [dsh-jj](dsh-jj/) | [LosEcher/dsh-jj](https://github.com/LosEcher/dsh-jj) | ✅ github:（1.0.1） | jj (Jujutsu) MCP server bundle（自研零依赖，14 工具 + CI 冒烟全绿） |
+| [kimi-webbridge-mcp](kimi-webbridge-mcp/) | [LosEcher/kimi-webbridge-mcp](https://github.com/LosEcher/kimi-webbridge-mcp) | ✅ github:（1.2.0） | Kimi WebBridge MCP server（浏览器控制，跨 DSH/Claude Code/Codex；快环 obs/act/open_tab + 会话信任守卫） |
 | [dsh-terminal-render](dsh-terminal-render/) | [LosEcher/dsh-terminal-render](https://github.com/LosEcher/dsh-terminal-render) | ✅ github:（0.1.x，web+headless 双挂载）；本地目录无 origin（保留作 dev 副本） | 终端渲染（kitty/sixel 图片协议） |
 | [dsh-web-mobile-fork](dsh-web-mobile-fork/) | [LosEcher/dsh-web-mobile](https://github.com/LosEcher/dsh-web-mobile) | ✅ github:（@dsh-external/dsh-mobile-nav） | 移动端导航 fork（tailscale serve + triage） |
-| [dsh-scheduler](dsh-scheduler/) | [LosEcher/dsh-scheduler](https://github.com/LosEcher/dsh-scheduler) | ✅ 已发布 0.3.x；**profile 当前 link:**（迭代中，空闲切回 github:） | 定时任务（cron/interval/once + headless 执行 + job.model 模型链 + 熔断 + 事件溯源台账 + 管理 UI） |
+| [dsh-scheduler](dsh-scheduler/) | [LosEcher/dsh-scheduler](https://github.com/LosEcher/dsh-scheduler) | ✅ 已发布 0.4.0；**profile 当前 link:**（迭代中，空闲切回 github:） | 定时任务（cron/interval/once + headless 执行 + job.model 模型链 + 熔断 + 事件溯源台账 + 0.4.0 机械验收断言/台账归档轮转/派发延迟可见性 + 管理 UI） |
 | [dsh-dashboards](dsh-dashboards/) | [LosEcher/dsh-dashboards](https://github.com/LosEcher/dsh-dashboards) | ✅ 已发布（8/18；**8/26-28 已补 origin 并推 GitHub**，v0.1.0）；profile link: | 看板（los 用量/节点矩阵 + macOS 探针 + 服务探活 + AI 额度 + 磁盘水位告警） |
 | [dsh-semantic-eviction](dsh-semantic-eviction/) | [LosEcher/dsh-semantic-eviction](https://github.com/LosEcher/dsh-semantic-eviction) | ✅ 已 public（workspace:^ 依赖已修 852a132）；**未挂载任何 profile**；⚠️ **仓库未提交 lib/ 且无 prepare 脚本 → github: 安装当前不可用**（DSH CLI 靠 prepare 构建，待补） | 语义逐出：大工具结果落盘后替换为 stub |
-| [dsh-context-doctor](dsh-context-doctor/) | fork 自 Zhenyu98（upstream remote 保留）；⚠️ **origin 仍指 Zhenyu98（待建 LosEcher 仓改指后 README 切 github: 源）** | 📦 本地（0.5.x）；profile link: | 上下文压缩可视化；dock 槽位迁移 + 令牌清理已修活（fork 原因见下） |
+| [dsh-context-doctor](dsh-context-doctor/) | fork 自 Zhenyu98（upstream remote 保留）；⚠️ **origin 仍指 Zhenyu98（待建 LosEcher 仓改指后 README 切 github: 源）** | 📦 本地（0.7.2）；profile link: | 上下文压缩可视化；dock 槽位迁移 + 令牌清理已修活（fork 原因见下） |
 | [dsh-multimedia](dsh-multimedia/) | 待发布 | 📦 本地（0.2.0）；profile link: | 多媒体生成（fal/elevenlabs/comfyui/xai/zenmux/pollinations/googletts/cloudflare） |
 | [dsh-verify-gate](dsh-verify-gate/) | [LosEcher/dsh-verify-gate](https://github.com/LosEcher/dsh-verify-gate) | ✅ **已发布（8/26，public/MIT/main@7f84e45，v0.1.0，origin 已建）**；profile 仍 link:（web+headless） | verify_run 工具（包装 verify-gate 二进制，exit 契约映射） |
 | [dsh-quick-actions](dsh-quick-actions/) | 待发布 | 📦 本地；profile link: | IFTTT 风格右键动作引擎（todo.add/session.create 等，runs.jsonl 台账） |
@@ -127,6 +130,16 @@ fork 流程」）：
   深色 fallback hex（令牌缺失时浅色主题错乱）、MONO 改 `var(--dsw-font-family)`。
   profile 已切 `link:dsplugins/dsh-context-doctor`，upstream remote 保留可合上游。
 
+- **dsh-memory-evolve**（已 fork，2026-09-22；本地提交 `46422bb`，基线 `upstream/main@c337dc1`）：
+  上游 `src/client` 用了 **24 个不存在的 `--dsw-alias-*` 令牌**（`border-l`×39、`bg-elevated`、
+  `text-tertiary`、`state-warning-*` 等），渲染时静默 fallback 到硬编码 hex → 浅色/深色主题错乱。
+  fork 后按「作者 fallback 色值 + harness 自身用法频次」双校准完成 88 处替换，重建 `lib/client.js`
+  （产物非法令牌 0、`React.createElement` 0），测试与原始副本逐项一致（829/827/2，2 个失败为
+  `rg` 不在 PATH 的环境性失败）。映射全表与验收/启用/回滚步骤见
+  [`dsh-memory-evolve/FORK.md`](dsh-memory-evolve/FORK.md)。
+  ⚠️ **尚未激活**：profile 仍用 `github:` 依赖；切换 `link:` + `pnpm install` 会触发宿主
+  AUTO-RELOAD 重启，需在受控窗口执行（步骤见 FORK.md 末节）。
+
 ## 安装脚本
 
 `install-first-batch.sh` 安装第一批社区插件（context-doctor / llm-fallbacks /
@@ -136,3 +149,20 @@ subagent-tools / revive / undo / memory-evolve / session-search）：
 bash install-first-batch.sh            # 全部安装
 bash install-first-batch.sh --dry-run  # 预览
 ```
+
+## 状态自检（2026-09-22 起，防本表再次漂移）
+
+逐目录比对源码版本与 web profile 实装版本，输出不一致项：
+
+```bash
+cd /Users/echerlos/syncfolder/project/dsplugins
+for d in */; do n=${d%/}; [ -f "$n/package.json" ] || continue
+  src=$(node -e "console.log(require('./$n/package.json').version||'-')")
+  ins=$(node -e "try{console.log(require(process.env.HOME+'/.dsh/profiles/web/node_modules/$n/package.json').version)}catch(e){console.log('(未装)')}")
+  [ "$src" = "$ins" ] || printf '%-26s src=%s installed=%s\n' "$n" "$src" "$ins"
+done
+```
+
+注意：`(未装)` 对 `dsh-restart-banner` / `dsh-semantic-eviction` / `dsh-web-mobile-fork`
+属预期（未挂载）；其余出现 `(未装)` 或版本不等即需回填本表。
+建议把这条自检挂进 DSH 生态周盘点定时任务（job-d9380cbe-caf）的 prompt。
